@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <script type="text/javascript">
+      // chk 함수 정의
+      function chk() {
+         // 만약 폼의 "num" 요소에 값이 없다면
+         if (!frm.num.value) {
+            // "숫자 입력" 알림을 띄우고
+            alert("숫자 입력");
+            // 폼의 "num" 요소에 커서를 포커스하고
+            frm.num.focus();
+            // 폼 제출을 중지하고 함수 실행을 종료
+            return false;
+         }
+         // 만약 폼의 "num" 요소에 입력된 값이 숫자가 아니라면
+         // 입력된 값이 숫자인지 확인하기 위해 isNaN 함수를 사용
+         if (isNaN(frm.num.value)) {
+            // "숫자가 아님 헐 ?" 알림을 띄우고
+            alert("숫자가 아님 헐 ?");
+            // 폼의 "num" 요소에 커서를 포커스하고
+            frm.num.focus();
+            // 입력된 글자를 지우고
+            frm.num.value = "";
+            // 폼 제출을 중지하고 함수 실행을 종료
+            return false;
+         }
+         // 폼이 유효하면 아무 작업도 하지 않고 종료
+         return true;
+      }
+   </script>
+</head>
+<body>
+   <h1>숫자를 입력하세요</h1>
+   <!--onsubmit = 폼을 제출(submit)할 때 실행될 JavaScript 코드를 정의하는 속성-->
+   <form action="Add3" name="frm" onsubmit="return chk()" method="get">
+      <!--주석 ctrl+shft+/-->
+      숫자 : <input type="text" name="num">
+      <p>
+         위치 : <input type="text" name="loc">
+      <p>
+         <input type="submit" value="확인">
+   </form>
+</body>
+
+</html>
